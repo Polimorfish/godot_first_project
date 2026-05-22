@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://de3ndl80tnqwp"]
+
+[ext_resource type="Script" uid="uid://c5mw6mu5pgcy7" path="res://scenes/mob.gd" id="1_e5eql"]
+[ext_resource type="Texture2D" uid="uid://dei41yld56pq4" path="res://art/enemyFlyingAlt_1.png" id="1_l4il3"]
+[ext_resource type="Texture2D" uid="uid://bjiqpyyuoqt4t" path="res://art/enemyFlyingAlt_2.png" id="2_e5eql"]
+[ext_resource type="PackedScene" uid="uid://bha2bhaohw1o5" path="res://scenes/mob_bullet.tscn" id="2_l00qg"]
+[ext_resource type="Texture2D" uid="uid://c7gqa6jle4mr" path="res://art/enemySwimming_1.png" id="3_l00qg"]
+[ext_resource type="Texture2D" uid="uid://b5ootgppf7bd3" path="res://art/enemySwimming_2.png" id="4_igqow"]
+[ext_resource type="Texture2D" uid="uid://dlbverchxawm" path="res://art/enemyWalking_1.png" id="5_36gnr"]
+[ext_resource type="Texture2D" uid="uid://dpr5gnc2di0f6" path="res://art/enemyWalking_2.png" id="6_uoj7a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbe8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l4il3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e5eql")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l00qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_igqow")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_36gnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uoj7a")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l00qg"]
+radius = 13.0
+height = 32.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1933031726 groups=["mobs"]]
+collision_layer = 2
+collision_mask = 9
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_e5eql")
+bullet_scene = ExtResource("2_l00qg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=712281452]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_tbe8m")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553426098]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_l00qg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1820303676]
+rect = Rect2(-10, -13, 28, 27)
+
+[node name="BulletPosition" type="Marker2D" parent="." unique_id=1140891547]
+position = Vector2(17, 0)
+
+[node name="BulletSpawn" type="Timer" parent="." unique_id=1902715335]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="BulletSpawn" to="." method="_on_bullet_spawn_timeout"]

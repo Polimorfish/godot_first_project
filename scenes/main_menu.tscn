@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://1q6blghnrg17"]
+
+[ext_resource type="Script" uid="uid://dugxu2veihsuj" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://dctunqj07wieq" path="res://fonts/Xolonium-Regular.ttf" id="1_l6cm7"]
+
+[node name="main_menu" type="CanvasLayer" unique_id=217743978]
+script = ExtResource("1_ekxnf")
+
+[node name="Control" type="Control" parent="." unique_id=73461417]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=114821802]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.5
+offset_top = -124.0
+offset_right = 146.5
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="StartSingle" type="Button" parent="Control/VBoxContainer" unique_id=2018998871]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+text = "Одиночная игра"
+
+[node name="Multiplayer" type="Button" parent="Control/VBoxContainer" unique_id=526904351]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+text = "Сетевая игра"
+
+[node name="Setting" type="Button" parent="Control/VBoxContainer" unique_id=511291289]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="Control/VBoxContainer" unique_id=646132798]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+text = "Выход"
+
+[connection signal="pressed" from="Control/VBoxContainer/StartSingle" to="." method="_on_start_single_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Multiplayer" to="." method="_on_start_coop_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

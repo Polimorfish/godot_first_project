@@ -1,0 +1,418 @@
+[gd_scene format=3 uid="uid://dxeuai2lri4ml"]
+
+[ext_resource type="Script" uid="uid://btx0udlf205dn" path="res://scenes/settings.gd" id="1_r6d6q"]
+[ext_resource type="FontFile" uid="uid://dctunqj07wieq" path="res://fonts/Xolonium-Regular.ttf" id="3_6wm04"]
+[ext_resource type="PackedScene" uid="uid://dvfkds0yg87e2" path="res://scenes/player_animations.tscn" id="4_f4mfi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wm04"]
+bg_color = Color(0.90533507, 0.9053352, 0.90533507, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es4n0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3254902, 0.74509805, 0.42745098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+expand_margin_top = 5.0
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 10
+shadow_offset = Vector2(10, 15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ppmf"]
+content_margin_left = 2.0
+content_margin_top = 10.0
+content_margin_right = 5.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3254902, 0.74509805, 0.42745098, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhhto"]
+content_margin_left = 2.0
+content_margin_top = 10.0
+content_margin_right = 5.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3254902, 0.74509805, 0.42745098, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am25x"]
+content_margin_left = 2.0
+content_margin_top = 0.0
+content_margin_right = 5.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3254902, 0.74509805, 0.42745098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjs24"]
+bg_color = Color(0.3254902, 0.74509805, 0.42745098, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6wm04"]
+color = Color(0.45685214, 0.4568522, 0.4568522, 1)
+
+[sub_resource type="Theme" id="Theme_6wm04"]
+default_font_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.3254902, 0.74509805, 0.42745098, 1)
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gis3k"]
+bg_color = Color(0.16078432, 0.39215687, 0.21568628, 1)
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 5
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83j8s"]
+bg_color = Color(0.26666668, 0.6156863, 0.34901962, 1)
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 5
+shadow_offset = Vector2(3, 3)
+
+[node name="Settings" type="CanvasLayer" unique_id=57246072]
+script = ExtResource("1_r6d6q")
+
+[node name="UI" type="Control" parent="." unique_id=462642325]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI" unique_id=1236341464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="AspectRatioContainer" parent="UI/Panel" unique_id=1376803084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI/Panel/Container" unique_id=1156040616]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6wm04")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/Panel/Container/Panel" unique_id=163880753]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" type="VBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer" unique_id=583732027]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="SettingsBase" type="TabContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings" unique_id=1629919609]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/side_margin = 10
+theme_override_constants/tab_separation = 15
+theme_override_constants/icon_separation = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/panel = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_4ppmf")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_uhhto")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_am25x")
+current_tab = 0
+use_hidden_tabs_for_min_size = true
+tab_focus_mode = 1
+tab_0/title = "Игра"
+
+[node name="Game" type="VBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase" unique_id=1212607504]
+layout_mode = 2
+theme_override_constants/separation = 10
+metadata/_tab_index = 0
+metadata/_tab_name = "Игра"
+
+[node name="Resolution" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game" unique_id=1967621404]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/Resolution" unique_id=1482574676]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjs24")
+text = "Разрешение:"
+
+[node name="Resolution" type="OptionButton" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/Resolution" unique_id=318679620]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 4
+item_count = 8
+popup/item_0/text = "648×648"
+popup/item_0/id = 0
+popup/item_1/text = "640×480"
+popup/item_1/id = 1
+popup/item_2/text = "720×480"
+popup/item_2/id = 2
+popup/item_3/text = "800×600"
+popup/item_3/id = 3
+popup/item_4/text = "1152×648"
+popup/item_4/id = 4
+popup/item_5/text = "1280×720"
+popup/item_5/id = 5
+popup/item_6/text = "1280×800"
+popup/item_6/id = 6
+popup/item_7/text = "1680×720"
+popup/item_7/id = 7
+
+[node name="Ratio" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game" unique_id=1438599191]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/Ratio" unique_id=1921193995]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjs24")
+text = "Соотношение сторон:"
+
+[node name="aspect" type="OptionButton" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/Ratio" unique_id=1183618023]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 8
+popup/item_0/text = "Fit to Window"
+popup/item_0/id = 0
+popup/item_1/text = "5:4"
+popup/item_1/id = 1
+popup/item_2/text = "4:3"
+popup/item_2/id = 2
+popup/item_3/text = "3:2"
+popup/item_3/id = 3
+popup/item_4/text = "16:10"
+popup/item_4/id = 4
+popup/item_5/text = "16:9"
+popup/item_5/id = 5
+popup/item_6/text = "21:9"
+popup/item_6/id = 6
+popup/item_7/text = "null"
+popup/item_7/id = 999
+
+[node name="StretchAspect" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game" unique_id=1285258704]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/StretchAspect" unique_id=776722059]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Растяжение:"
+
+[node name="StretchAspect" type="OptionButton" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/StretchAspect" unique_id=1862641762]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 7
+popup/item_0/text = "Irgone"
+popup/item_0/id = 0
+popup/item_1/text = "Keep"
+popup/item_1/id = 1
+popup/item_2/text = "Keep Width"
+popup/item_2/id = 2
+popup/item_3/text = "Keep Height"
+popup/item_3/id = 3
+popup/item_4/text = "Expand"
+popup/item_4/id = 4
+popup/item_5/text = "16:9"
+popup/item_5/id = 5
+popup/item_6/text = "21:9"
+popup/item_6/id = 6
+
+[node name="HSeparator2" type="HSeparator" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game" unique_id=1226683872]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_6wm04")
+
+[node name="ScaleFactor" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game" unique_id=1740467004]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/ScaleFactor" unique_id=10130285]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Масштаб окна:"
+
+[node name="HSlider" type="HSlider" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/ScaleFactor" unique_id=719099183]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.75
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="Value" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/ScaleFactor" unique_id=1802518584]
+layout_mode = 2
+text = "100%"
+
+[node name="StretchMode" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game" unique_id=1398415952]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/StretchMode" unique_id=568998212]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Растяжение:"
+
+[node name="StretchScaleMode" type="OptionButton" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/StretchMode" unique_id=1459205514]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "Fractional"
+popup/item_0/id = 0
+popup/item_1/text = "Integer"
+popup/item_1/id = 1
+
+[node name="GUI_margin" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game" unique_id=1424017371]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/GUI_margin" unique_id=1194298956]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Внешний отступ :"
+
+[node name="gui_scale" type="HSlider" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/GUI_margin" unique_id=1360621856]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.75
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="Value" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/GUI_margin" unique_id=1627389176]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game" unique_id=7750468]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/HBoxContainer3" unique_id=492909906]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Модель персонажа:"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/HBoxContainer3" unique_id=1731939966]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="TextureLeftSlide" type="Button" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer" unique_id=2007245737]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = "<"
+
+[node name="current_texture" type="TextureRect" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer" unique_id=1272498395]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_6wm04")
+
+[node name="normal_animation" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer/current_texture" unique_id=1731687870 instance=ExtResource("4_f4mfi")]
+position = Vector2(53, 28.999992)
+scale = Vector2(0.4722222, 0.45185193)
+frame_progress = 0.0
+
+[node name="TextureRightSlide" type="Button" parent="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer" unique_id=1971469206]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = ">"
+
+[node name="Buttons" type="HBoxContainer" parent="UI/Panel/Container/Panel/CenterContainer/Settings" unique_id=1264258344]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 20
+
+[node name="Save" type="Button" parent="UI/Panel/Container/Panel/CenterContainer/Settings/Buttons" unique_id=46555669]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_6wm04")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gis3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83j8s")
+text = "Сохранить"
+
+[node name="Exit" type="Button" parent="UI/Panel/Container/Panel/CenterContainer/Settings/Buttons" unique_id=2122955564]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_6wm04")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gis3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83j8s")
+text = "Выход"
+
+[connection signal="item_selected" from="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/Resolution/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/Ratio/aspect" to="." method="_on_aspect_item_selected"]
+[connection signal="item_selected" from="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/StretchAspect/StretchAspect" to="." method="_on_stretch_mode_item_selected"]
+[connection signal="drag_ended" from="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/ScaleFactor/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="item_selected" from="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/StretchMode/StretchScaleMode" to="." method="_on_stretch_scale_mode_item_selected"]
+[connection signal="drag_ended" from="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/GUI_margin/gui_scale" to="." method="_on_gui_scale_drag_ended"]
+[connection signal="pressed" from="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer/TextureLeftSlide" to="." method="_on_texture_left_slide_pressed"]
+[connection signal="pressed" from="UI/Panel/Container/Panel/CenterContainer/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer/TextureRightSlide" to="." method="_on_texture_right_slide_pressed"]
+[connection signal="pressed" from="UI/Panel/Container/Panel/CenterContainer/Settings/Buttons/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="UI/Panel/Container/Panel/CenterContainer/Settings/Buttons/Exit" to="." method="_on_exit_pressed"]

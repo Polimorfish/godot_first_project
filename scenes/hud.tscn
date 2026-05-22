@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cc23m0le8jgyr"]
+
+[ext_resource type="FontFile" uid="uid://dctunqj07wieq" path="res://fonts/Xolonium-Regular.ttf" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://18iad6rp6u4m" path="res://scenes/hud.gd" id="1_oo0fn"]
+[ext_resource type="PackedScene" uid="uid://cacfgtcvgnq1v" path="res://scenes/name_enterer.tscn" id="3_5ysmq"]
+[ext_resource type="PackedScene" uid="uid://c2oexhtyr7lpl" path="res://scenes/lieders_tabel.tscn" id="4_6fi6k"]
+[ext_resource type="PackedScene" uid="uid://1q6blghnrg17" path="res://scenes/main_menu.tscn" id="5_uo2fv"]
+[ext_resource type="PackedScene" uid="uid://dxeuai2lri4ml" path="res://scenes/settings.tscn" id="6_047uy"]
+[ext_resource type="PackedScene" uid="uid://bluvac7ruf2s8" path="res://scenes/lobby.tscn" id="7_5pdws"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1648910813]
+script = ExtResource("1_oo0fn")
+
+[node name="Score" type="Label" parent="." unique_id=1426222514]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="." unique_id=193681392]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_right = 240.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 64
+text = "Dodge the Creeps"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=690698759]
+wait_time = 2.0
+one_shot = true
+
+[node name="HealthContainer" type="HBoxContainer" parent="." unique_id=1045855334]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+
+[node name="NameEnterer" parent="." unique_id=2141358470 instance=ExtResource("3_5ysmq")]
+visible = false
+
+[node name="LiedersTabel" parent="." unique_id=1636179081 instance=ExtResource("4_6fi6k")]
+visible = false
+
+[node name="main_menu" parent="." unique_id=217743978 instance=ExtResource("5_uo2fv")]
+
+[node name="Settings" parent="." unique_id=57246072 instance=ExtResource("6_047uy")]
+visible = false
+
+[node name="lobby" parent="." unique_id=905839206 instance=ExtResource("7_5pdws")]
+visible = false
+
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="s_cancel" from="NameEnterer" to="." method="_on_name_enterer_s_cancel"]
+[connection signal="s_confirm" from="NameEnterer" to="." method="_on_name_enterer_s_confirm"]
+[connection signal="visibility_changed" from="NameEnterer" to="NameEnterer" method="_on_visibility_changed"]
+[connection signal="close" from="LiedersTabel" to="." method="_on_lieders_tabel_close"]
+[connection signal="exit" from="main_menu" to="." method="_on_main_menu_exit"]
+[connection signal="network_play" from="main_menu" to="." method="_on_main_menu_network_play"]
+[connection signal="settings" from="main_menu" to="." method="_on_main_menu_settings"]
+[connection signal="single_play" from="main_menu" to="." method="_on_main_menu_single_play"]
+[connection signal="screen_size_updated" from="Settings" to="." method="_on_settings_screen_size_updated"]

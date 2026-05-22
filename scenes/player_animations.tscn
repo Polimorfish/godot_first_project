@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dvfkds0yg87e2"]
+
+[ext_resource type="Texture2D" uid="uid://tuugvxq6n4rb" path="res://art/playerGrey_up1.png" id="1_b2inp"]
+[ext_resource type="Texture2D" uid="uid://dlbverchxawm" path="res://art/enemyWalking_1.png" id="1_gfeb6"]
+[ext_resource type="Texture2D" uid="uid://dpr5gnc2di0f6" path="res://art/enemyWalking_2.png" id="2_32dty"]
+[ext_resource type="Texture2D" uid="uid://cvawl2g4m3wdj" path="res://art/playerGrey_up2.png" id="2_o4tdc"]
+[ext_resource type="Texture2D" uid="uid://lhdtxjvmntpp" path="res://art/playerGrey_walk1.png" id="3_gfeb6"]
+[ext_resource type="Texture2D" uid="uid://dpg41jf5j5fcl" path="res://art/playerGrey_walk2.png" id="4_32dty"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdl7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gfeb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_32dty")
+}],
+"loop": true,
+"name": &"creep_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b2inp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o4tdc")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gfeb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_32dty")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="normal_animation" type="AnimatedSprite2D" unique_id=1731687870]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_mdl7e")
+animation = &"walk"
+frame_progress = 0.8468628

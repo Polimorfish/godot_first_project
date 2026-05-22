@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bha2bhaohw1o5"]
+
+[ext_resource type="Script" uid="uid://dvp4qxhjrw3qg" path="res://scenes/mob_bullet.gd" id="1_u8bj4"]
+
+[sub_resource type="Gradient" id="Gradient_mkf8s"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.50769234, 0.54615384)
+colors = PackedColorArray(1, 1, 1, 0.9647059, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y25gk"]
+gradient = SubResource("Gradient_mkf8s")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5glv"]
+
+[node name="MobBullet" type="RigidBody2D" unique_id=85065073 groups=["bullets"]]
+collision_layer = 4
+collision_mask = 9
+gravity_scale = 0.0
+script = ExtResource("1_u8bj4")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=843611394]
+rect = Rect2(-5, -5, 10, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1540011080]
+texture = SubResource("GradientTexture2D_y25gk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=756790510]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_l5glv")
+debug_color = Color(0.9888875, 0, 0.30216813, 0.41960785)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

@@ -1,0 +1,493 @@
+[gd_scene format=3 uid="uid://c7xxfp65t4kf8"]
+
+[ext_resource type="Script" uid="uid://btx0udlf205dn" path="res://scenes/settings.gd" id="1_nug7n"]
+[ext_resource type="PackedScene" uid="uid://dvfkds0yg87e2" path="res://scenes/player_animations.tscn" id="2_v1qax"]
+[ext_resource type="FontFile" uid="uid://dctunqj07wieq" path="res://fonts/Xolonium-Regular.ttf" id="3_sm3t8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wm04"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.30980393, 0.49803922, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es4n0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.30980393, 0.49803922, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.49481517, 0.64616805, 1, 1)
+expand_margin_top = 5.0
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 10
+shadow_offset = Vector2(10, 15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ppmf"]
+content_margin_left = 2.0
+content_margin_top = 10.0
+content_margin_right = 5.0
+content_margin_bottom = 10.0
+bg_color = Color(0.26842114, 0.40673462, 0.99999887, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0.49411765, 0.64705884, 1, 1)
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhhto"]
+content_margin_left = 2.0
+content_margin_top = 10.0
+content_margin_right = 5.0
+content_margin_bottom = 10.0
+bg_color = Color(0.22991708, 0.36091334, 1, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0.49411765, 0.64705884, 1, 1)
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am25x"]
+content_margin_left = 2.0
+content_margin_top = 0.0
+content_margin_right = 5.0
+content_margin_bottom = 10.0
+bg_color = Color(0.30980393, 0.49803922, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0.49411765, 0.64705884, 1, 1)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjs24"]
+bg_color = Color(0.30980393, 0.49803922, 1, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6wm04"]
+color = Color(0.44382095, 0.6082861, 1, 1)
+thickness = 5
+
+[sub_resource type="Theme" id="Theme_6wm04"]
+default_font_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.30980393, 0.49803922, 1, 1)
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gis3k"]
+bg_color = Color(0.07379296, 0, 0.96458334, 1)
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 5
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83j8s"]
+bg_color = Color(0.14114308, 0.32063606, 0.9999737, 1)
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 5
+shadow_offset = Vector2(3, 3)
+
+[node name="Settings" type="CanvasLayer" unique_id=57246072]
+script = ExtResource("1_nug7n")
+
+[node name="UI" type="Control" parent="." unique_id=462642325]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI" unique_id=1156040616]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6wm04")
+
+[node name="Settings" type="VBoxContainer" parent="UI/Panel" unique_id=583732027]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -227.0
+offset_top = 20.0
+offset_right = 227.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="SettingsBase" type="TabContainer" parent="UI/Panel/Settings" unique_id=1629919609]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/side_margin = 10
+theme_override_constants/tab_separation = 15
+theme_override_constants/icon_separation = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/panel = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_4ppmf")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_uhhto")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_am25x")
+current_tab = 0
+use_hidden_tabs_for_min_size = true
+tab_focus_mode = 1
+tab_0/title = "Игра"
+tab_1/title = "Текстуры"
+tab_2/title = "Видео"
+
+[node name="Game" type="VBoxContainer" parent="UI/Panel/Settings/SettingsBase" unique_id=1212607504]
+layout_mode = 2
+theme_override_constants/separation = 10
+metadata/_tab_index = 0
+metadata/_tab_name = "Игра"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Game" unique_id=1967621404]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer" unique_id=1482574676]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjs24")
+text = "Размер экрана:"
+
+[node name="resolution1" type="MenuButton" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer" unique_id=1308228578 groups=["menu_buttons"]]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+item_count = 5
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1620x768"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "800x600"
+popup/item_3/id = 3
+popup/item_4/text = "600x480"
+popup/item_4/id = 4
+
+[node name="Resolution" type="OptionButton" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer" unique_id=318679620]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="UI/Panel/Settings/SettingsBase/Game" unique_id=1194100751]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6wm04")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Game" unique_id=1285258704]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer2" unique_id=776722059]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Сглаживание:"
+
+[node name="smooth" type="MenuButton" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer2" unique_id=472089839 groups=["menu_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+
+[node name="HSeparator2" type="HSeparator" parent="UI/Panel/Settings/SettingsBase/Game" unique_id=1226683872]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6wm04")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Game" unique_id=7750468]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer3" unique_id=492909906]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Модель персонажа:"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer3" unique_id=1731939966]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="TextureLeftSlide" type="Button" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer" unique_id=2007245737]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = "<"
+
+[node name="current_texture" type="TextureRect" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer" unique_id=1272498395]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_6wm04")
+
+[node name="normal_animation" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer/current_texture" unique_id=1731687870 instance=ExtResource("2_v1qax")]
+position = Vector2(53, 30.5)
+scale = Vector2(0.5, 0.492)
+frame_progress = 0.0
+
+[node name="TextureRightSlide" type="Button" parent="UI/Panel/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer" unique_id=1971469206]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = ">"
+
+[node name="Textures" type="VBoxContainer" parent="UI/Panel/Settings/SettingsBase" unique_id=636697963]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+metadata/_tab_index = 1
+metadata/_tab_name = "Текстуры"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Textures" unique_id=1687161660]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer" unique_id=1990903360]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjs24")
+text = "Размер экрана:"
+
+[node name="resolution" type="MenuButton" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer" unique_id=416672668 groups=["menu_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+
+[node name="HSeparator" type="HSeparator" parent="UI/Panel/Settings/SettingsBase/Textures" unique_id=1147440244]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6wm04")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Textures" unique_id=72335832]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer2" unique_id=794062573]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Сглаживание:"
+
+[node name="smooth" type="MenuButton" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer2" unique_id=437388143 groups=["menu_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+
+[node name="HSeparator2" type="HSeparator" parent="UI/Panel/Settings/SettingsBase/Textures" unique_id=1124179770]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6wm04")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Textures" unique_id=37741794]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer3" unique_id=509295109]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Модель персонажа:"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer3" unique_id=600206423]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="TextureLeftSlide" type="Button" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer3/VBoxContainer" unique_id=536973512]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = "<"
+
+[node name="current_texture" type="TextureRect" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer3/VBoxContainer" unique_id=150423153]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_6wm04")
+
+[node name="normal_animation" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer3/VBoxContainer/current_texture" unique_id=256116145 instance=ExtResource("2_v1qax")]
+position = Vector2(53, 30.5)
+scale = Vector2(0.5, 0.492)
+frame_progress = 0.0
+
+[node name="TextureRightSlide" type="Button" parent="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer3/VBoxContainer" unique_id=1704014887]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = ">"
+
+[node name="Video" type="VBoxContainer" parent="UI/Panel/Settings/SettingsBase" unique_id=1653891928]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+metadata/_tab_index = 2
+metadata/_tab_name = "Видео"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Video" unique_id=1223306709]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer" unique_id=1734039093]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjs24")
+text = "Размер экрана:"
+
+[node name="resolution" type="MenuButton" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer" unique_id=943370220 groups=["menu_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+
+[node name="HSeparator" type="HSeparator" parent="UI/Panel/Settings/SettingsBase/Video" unique_id=1663286035]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6wm04")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Video" unique_id=367643621]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer2" unique_id=884441151]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Сглаживание:"
+
+[node name="smooth" type="MenuButton" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer2" unique_id=1656144515 groups=["menu_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+
+[node name="HSeparator2" type="HSeparator" parent="UI/Panel/Settings/SettingsBase/Video" unique_id=1189798839]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6wm04")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Video" unique_id=454900581]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer3" unique_id=542105506]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "Модель персонажа:"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer3" unique_id=1286109193]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="TextureLeftSlide" type="Button" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer3/VBoxContainer" unique_id=1096733523]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = "<"
+
+[node name="current_texture" type="TextureRect" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer3/VBoxContainer" unique_id=84118356]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_6wm04")
+
+[node name="normal_animation" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer3/VBoxContainer/current_texture" unique_id=1426647476 instance=ExtResource("2_v1qax")]
+position = Vector2(53, 30.5)
+scale = Vector2(0.5, 0.492)
+frame_progress = 0.0
+
+[node name="TextureRightSlide" type="Button" parent="UI/Panel/Settings/SettingsBase/Video/HBoxContainer3/VBoxContainer" unique_id=853301201]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = ">"
+
+[node name="Buttons" type="HBoxContainer" parent="UI/Panel/Settings" unique_id=1264258344]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 20
+
+[node name="Save" type="Button" parent="UI/Panel/Settings/Buttons" unique_id=46555669]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_sm3t8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gis3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83j8s")
+text = "Сохранить"
+
+[node name="Exit" type="Button" parent="UI/Panel/Settings/Buttons" unique_id=2122955564]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_sm3t8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gis3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83j8s")
+text = "Выход"
+
+[connection signal="pressed" from="UI/Panel/Settings/SettingsBase/Game/HBoxContainer/resolution1" to="." method="_on_resolution_pressed"]
+[connection signal="item_selected" from="UI/Panel/Settings/SettingsBase/Game/HBoxContainer/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="pressed" from="UI/Panel/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer/TextureLeftSlide" to="." method="_on_texture_left_slide_pressed"]
+[connection signal="pressed" from="UI/Panel/Settings/SettingsBase/Game/HBoxContainer3/VBoxContainer/TextureRightSlide" to="." method="_on_texture_right_slide_pressed"]
+[connection signal="pressed" from="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer3/VBoxContainer/TextureLeftSlide" to="." method="_on_texture_left_slide_pressed"]
+[connection signal="pressed" from="UI/Panel/Settings/SettingsBase/Textures/HBoxContainer3/VBoxContainer/TextureRightSlide" to="." method="_on_texture_right_slide_pressed"]
+[connection signal="pressed" from="UI/Panel/Settings/SettingsBase/Video/HBoxContainer3/VBoxContainer/TextureLeftSlide" to="." method="_on_texture_left_slide_pressed"]
+[connection signal="pressed" from="UI/Panel/Settings/SettingsBase/Video/HBoxContainer3/VBoxContainer/TextureRightSlide" to="." method="_on_texture_right_slide_pressed"]
+[connection signal="pressed" from="UI/Panel/Settings/Buttons/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="UI/Panel/Settings/Buttons/Exit" to="." method="_on_exit_pressed"]

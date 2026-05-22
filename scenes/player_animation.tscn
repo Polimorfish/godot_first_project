@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c5f5o0q0l2wbs"]
+
+[ext_resource type="Script" uid="uid://d4f4040uvrp4s" path="res://player_animation.gd" id="1_mlcew"]
+[ext_resource type="PackedScene" uid="uid://dvfkds0yg87e2" path="res://scenes/player_animations.tscn" id="2_5l1fv"]
+
+[node name="player_animation" type="Node2D" unique_id=160842705]
+script = ExtResource("1_mlcew")
+
+[node name="normal_animation" parent="." unique_id=1731687870 instance=ExtResource("2_5l1fv")]
+frame_progress = 0.5583874
+
+[node name="animation2" parent="." unique_id=1622712403 instance=ExtResource("2_5l1fv")]
+frame_progress = 0.0
