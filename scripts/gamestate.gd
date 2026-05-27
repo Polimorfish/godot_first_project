@@ -47,19 +47,21 @@ func unregister_player(id):
 	players.erase(id)
 	player_list_changed.emit()
 
-@rpc("call_local")
+#Где будет выполнен метод?
+#Как вызвать удаленно
+@rpc("authority", "call_local", "reliable", 0)
 func load_world():
 	#Change Scene
-	var world = load("res://scenes/main.tscn")
+	var world = load("res://scenes/main.tscn").instantiate()
 	get_tree().get_root().add_child(world)
-	get_tree().get_root().get_node("Lobby").hide()
+	get_tree().get_root().get_node("Main").get_node("HUD").get_node("lobby").hide()
 	
 	#Set up score
 	world.get_node("Score").add_player(multiplayer.get_unique_id(), player_name)
 	for pn in players:
 		world.get_node("Score").add_player(pn, players[pn])
 	get_tree().set_pause(false)
-
+	
 func host_game(new_player_name):
 	player_name = new_player_name
 	peer = ENetMultiplayerPeer.new()
@@ -85,18 +87,13 @@ func begin_game():
 	var world = get_tree().get_root().get_node("Main")
 	var player_scene = load("res://scenes/Player.tscn")
 	
-	var spawn_position = world.get_node("StartPosition")
+	var spawn_position = world.get_node("StartPosition").position
 	
 	for pn in players:
 		var player = player_scene.instantiate()
 		player.synced_position = spawn_position
 		player.name = str(players[pn])
-		player.set_player_name(
-			player_name
-				if pn == multiplayer.get_unique_id()
-			else
-				players[pn]
-		)
+		player.set_player_name(player_name if pn == multiplayer.get_unique_id() else players[pn])
 		world.get_node("Players").add_child(player)
 	
 func end_game():

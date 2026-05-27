@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://chygjhirg03p8" path="res://scenes/Player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://de3ndl80tnqwp" path="res://scenes/Mob.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cc23m0le8jgyr" path="res://scenes/hud.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://bqmdboinr71xd" path="res://scenes/score.gd" id="5_tbgi4"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgp6g"]
 _data = {
@@ -38,6 +39,13 @@ curve = SubResource("Curve2D_sgp6g")
 position = Vector2(-0.08605957, 0)
 
 [node name="HUD" parent="." unique_id=1648910813 instance=ExtResource("4_jyhfs")]
+
+[node name="Score" type="HBoxContainer" parent="." unique_id=128895385]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+script = ExtResource("5_tbgi4")
 
 [connection signal="screen_size_updated" from="." to="Players/Player" method="_on_main_screen_size_updated"]
 [connection signal="die" from="Players/Player" to="." method="_game_over"]

@@ -9,7 +9,6 @@ var score
 var screen_size : Vector2i
 
 func _ready() -> void:
-	#ProjectSettings.settings_changed.connect(settings_has_changed)
 	pass
 
 func _game_over() -> void:
@@ -35,6 +34,7 @@ func start_game():
 	$StartTimer.start()
 	$HUD.show_message("Get Ready!")
 	$HUD.update_score(score)
+	$HUD/main_menu.hide()
 	
 	Player.set_health()
 	

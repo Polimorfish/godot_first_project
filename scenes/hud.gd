@@ -136,3 +136,9 @@ func _on_settings_screen_size_updated(screen_size : Vector2i) -> void:
 func _on_main_menu_network_play() -> void:
 	$lobby.show()
 	$main_menu.hide()
+
+
+func _on_start_game() -> void:
+	$main_menu.hide()
+	hide()
+	pass

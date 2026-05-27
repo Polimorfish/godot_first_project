@@ -82,6 +82,8 @@ func refresh_lobby():
 
 func _on_start_pressed() -> void:
 	Gamestate.begin_game()
+	if owner:
+		owner.start_game.emit()
 
 
 func _on_find_public_ip_pressed() -> void:

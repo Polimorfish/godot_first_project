@@ -15,7 +15,7 @@ var max_health = 3
 var current_health : int
 var acceleration = Vector2(100, 100)
 
-var screen_size
+var screen_size : Vector2i
 var velocity = Vector2.ZERO
 var bullet_spawn_position_right = Vector2(19, -4)
 var bullet_spawn_position_left = Vector2(-19, -4)
@@ -24,8 +24,20 @@ var bullet_spawn_position_down = Vector2(0, 23)
 var can_shot = true
 var bullet_collision_mask = 0x0000 # the mask is 00000110
 var current_direction : Vector2
+var player_name = "lol"
+
+func update_screen_size():
+	if ! screen_size:
+		screen_size = Vector2i(
+			ProjectSettings.get_setting("display/window/size/viewport_width"),
+			ProjectSettings.get_setting("display/window/size/viewport_height")	
+		)
+
+func set_player_name(name):
+	player_name = name
 
 func _ready() -> void:
+	update_screen_size()
 	$BulletSpawn.position = bullet_spawn_position_right
 	position = synced_position
 	hide()

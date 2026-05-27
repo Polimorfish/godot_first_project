@@ -32,8 +32,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -240.0
 offset_right = 240.0
-offset_bottom = 240.0
+offset_bottom = 176.0
 grow_horizontal = 2
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_ahhtf")
 theme_override_font_sizes/font_size = 64
 text = "Dodge the Creeps"
@@ -64,6 +65,7 @@ visible = false
 [node name="lobby" parent="." unique_id=905839206 instance=ExtResource("7_5pdws")]
 visible = false
 
+[connection signal="start_game" from="." to="." method="_on_start_game"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="s_cancel" from="NameEnterer" to="." method="_on_name_enterer_s_cancel"]
 [connection signal="s_confirm" from="NameEnterer" to="." method="_on_name_enterer_s_confirm"]
