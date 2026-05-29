@@ -148,7 +148,7 @@ offset_left = 10.0
 offset_top = 110.5
 offset_right = 187.5
 offset_bottom = 138.50008
-text = "127.0.0.1"
+text = "192.168.1.93"
 
 [node name="Name" type="Label" parent="Connect" unique_id=734727537]
 layout_mode = 0

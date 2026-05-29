@@ -47,14 +47,17 @@ func unregister_player(id):
 	players.erase(id)
 	player_list_changed.emit()
 
-#Где будет выполнен метод?
-#Как вызвать удаленно
+@rpc("authority", "call_local", "reliable", 0)
+func start_game():
+	var world = get_tree().get_root().get_node("Main")
+	world.start_game()
+
 @rpc("authority", "call_local", "reliable", 0)
 func load_world():
 	#Change Scene
 	var world = load("res://scenes/main.tscn").instantiate()
 	get_tree().get_root().add_child(world)
-	get_tree().get_root().get_node("Main").get_node("HUD").get_node("lobby").hide()
+	world.get_node("HUD").get_node("lobby").hide()
 	
 	#Set up score
 	world.get_node("Score").add_player(multiplayer.get_unique_id(), player_name)
@@ -95,6 +98,8 @@ func begin_game():
 		player.name = str(players[pn])
 		player.set_player_name(player_name if pn == multiplayer.get_unique_id() else players[pn])
 		world.get_node("Players").add_child(player)
+	
+	start_game.rpc()
 	
 func end_game():
 	if has_node("/root/Main"):

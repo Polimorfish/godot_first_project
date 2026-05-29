@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dmkyai24ckn5r" path="res://scenes/player.gd" id="1_3li8b"]
 [ext_resource type="PackedScene" uid="uid://7m1fqwwpf7g0" path="res://scenes/player_bullet.tscn" id="2_70d11"]
 [ext_resource type="PackedScene" uid="uid://dvfkds0yg87e2" path="res://scenes/player_animations.tscn" id="3_3li8b"]
+[ext_resource type="FontFile" uid="uid://dctunqj07wieq" path="res://fonts/Xolonium-Regular.ttf" id="3_qu4a1"]
+[ext_resource type="Script" uid="uid://hlqjkx6ibopf" path="res://scenes/input.gd" id="4_mdl7e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qu4a1"]
 radius = 15.0
@@ -44,6 +46,22 @@ _data = {
 &"hit": SubResource("Animation_qu4a1")
 }
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qu4a1"]
+properties/0/path = NodePath(".:synced_position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Label:text")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_70d11"]
+properties/0/path = NodePath(".:motion")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:can_shot")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="Area2D" type="Area2D" unique_id=301910214]
 process_mode = 1
 collision_mask = 6
@@ -61,10 +79,38 @@ position = Vector2(0, -4)
 [node name="ShotTimer" type="Timer" parent="." unique_id=169226211]
 one_shot = true
 
+[node name="Label" type="Label" parent="." unique_id=1613809739]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -39.0
+offset_right = 26.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_qu4a1")
+theme_override_font_sizes/font_size = 14
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=397056889]
 libraries/ = SubResource("AnimationLibrary_70d11")
 
 [node name="AnimatedSprite2D" parent="." unique_id=1731687870 instance=ExtResource("3_3li8b")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=679577250]
+replication_config = SubResource("SceneReplicationConfig_qu4a1")
+
+[node name="Inputs" type="Node" parent="." unique_id=396621085]
+script = ExtResource("4_mdl7e")
+
+[node name="InputSync" type="MultiplayerSynchronizer" parent="Inputs" unique_id=1063571908]
+replication_config = SubResource("SceneReplicationConfig_70d11")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

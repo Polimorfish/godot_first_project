@@ -3,8 +3,9 @@ extends Node
 signal screen_size_updated(size)
 
 @export var mob_scene : PackedScene
-@onready var Player = $Players/Player
 @onready var mob_spawn_path : Path2D = $MobPath2
+var player : Node
+
 var score
 var screen_size : Vector2i
 
@@ -16,6 +17,13 @@ func _game_over() -> void:
 	$MobTimer.stop()
 	$HUD.show_game_over()
 
+func create_player():
+	player = load("res://scenes/Player.tscn").instantiate()
+	get_tree().root.get_node("Main").add_child(player)
+	
+	player.start($StartPosition.position)
+	player.set_health()
+
 func update_screen_size():
 	screen_size = Vector2i(
 		ProjectSettings.get_setting("display/window/size/viewport_width"),
@@ -24,24 +32,23 @@ func update_screen_size():
 	screen_size_updated.emit(screen_size)
 
 func start_game():
+	create_player()
 	update_screen_size()
 	update_spawn_border()
 	
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("bullets", "queue_free")
 	score = 0
-	Player.start($StartPosition.position)
+	
 	$StartTimer.start()
 	$HUD.show_message("Get Ready!")
 	$HUD.update_score(score)
 	$HUD/main_menu.hide()
 	
-	Player.set_health()
-	
-	var max_health = Player.max_health
+	var max_health = player.max_health
 	for i in range(max_health):
 		$HUD.add_health()
-	
+
 func _on_mob_timer_timeout() -> void:
 	var mob = mob_scene.instantiate()
 	

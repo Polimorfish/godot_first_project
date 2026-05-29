@@ -2,14 +2,11 @@ extends Area2D
 signal hit
 signal die
 
-@export
-var speed = 400
+@export var speed = 400
+@export var bullet_scene : PackedScene
+@export var synced_position := Vector2()
 
-@export
-var bullet_scene : PackedScene
-
-@export
-var synced_position := Vector2()
+@onready var Inputs = $Inputs
 
 var max_health = 3
 var current_health : int
@@ -34,33 +31,37 @@ func update_screen_size():
 		)
 
 func set_player_name(name):
-	player_name = name
+	get_node("Label").text = name
 
 func _ready() -> void:
+	
 	update_screen_size()
 	$BulletSpawn.position = bullet_spawn_position_right
 	position = synced_position
+	
+	if str(name).is_valid_int():
+		get_node("Input/InputSync").set_multiplayer_authority(str(name).to_int())
+	print(multiplayer.multiplayer_peer)
 	hide()
 
 func _process(delta: float) -> void:
-	velocity = Vector2.ZERO
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-		$BulletSpawn.position = bullet_spawn_position_right
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-		$BulletSpawn.position = bullet_spawn_position_left
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-		$BulletSpawn.position = bullet_spawn_position_up
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-		$BulletSpawn.position = bullet_spawn_position_down
-	if Input.is_action_just_pressed("shot"):
-		if can_shot:
-			spawn_bullet()
-			can_shot = false
-			$ShotTimer.start()
+	Inputs.update()
+	#Здесь вызывается метод для обработки ввода пользователя в любом случае
+	#Не понятно в каком случае определяется multipleer_peer и как по нему определить
+		#является ли узел клиентом или сервером
+	
+	if multiplayer.multiplayer_peer == null or str(multiplayer.get_unique_id()) == str(name):
+		Inputs.update()
+	
+	#Если нет объекта для обработки системы rpc или локальная система - многопользовательский центр узла
+	if multiplayer.multiplayer_peer == null or is_multiplayer_authority():
+		synced_position = position
+		if is_multiplayer_authority() and Inputs.shooting:
+			pass #Создаем пулю в сцене
+	else:
+		position = synced_position
+	
+	velocity = Inputs.motion
 	
 	if velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
