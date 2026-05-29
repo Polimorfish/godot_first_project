@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://q3yft7fcaugu" path="res://scenes/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://de3ndl80tnqwp" path="res://scenes/Mob.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cc23m0le8jgyr" path="res://scenes/hud.tscn" id="4_jyhfs"]
-[ext_resource type="Script" path="res://scenes/score.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://bqmdboinr71xd" path="res://scenes/score.gd" id="5_tbgi4"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgp6g"]
 _data = {

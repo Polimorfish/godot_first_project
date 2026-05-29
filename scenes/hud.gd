@@ -140,5 +140,3 @@ func _on_main_menu_network_play() -> void:
 
 func _on_start_game() -> void:
 	$main_menu.hide()
-	hide()
-	pass

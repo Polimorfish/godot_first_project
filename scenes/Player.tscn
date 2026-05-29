@@ -114,5 +114,6 @@ replication_config = SubResource("SceneReplicationConfig_70d11")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="die" from="." to="." method="_on_die"]
 [connection signal="hit" from="." to="." method="_on_hit"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

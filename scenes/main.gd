@@ -19,10 +19,12 @@ func _game_over() -> void:
 
 func create_player():
 	player = load("res://scenes/Player.tscn").instantiate()
-	get_tree().root.get_node("Main").add_child(player)
+	get_tree().root.get_node("Main").get_node("Players").add_child(player)
 	
 	player.start($StartPosition.position)
 	player.set_health()
+	player.hit.connect(_hud_erase_health)
+	player.die.connect(_game_over)
 
 func update_screen_size():
 	screen_size = Vector2i(
@@ -62,6 +64,9 @@ func _on_mob_timer_timeout() -> void:
 	mob.linear_velocity = velocity.rotated(direction)
 	add_child(mob)
 
+func _hud_erase_health():
+	$HUD.remove_health()
+	
 func _on_score_timer_timeout() -> void:
 	score += 1
 	$HUD.update_score(score)
